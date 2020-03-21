@@ -29,13 +29,12 @@ class bst(object):
         return p
 #### Inorder traversal
     def inorder(self):
-        self._inorder(self.root)
-        print()
-
+        self._inorder(self.root) 
+        print() 
     def _inorder(self,current_node):
         if current_node is None:
             return
-        self._inorder(current_node.lchld)
+        self._inorder(current_node.lchild)
         print (current_node.data, " ")
         self._inorder(current_node.rchild)
 
@@ -65,4 +64,38 @@ class bst(object):
         self._postorder(current_node.lchild)
         self._postorder(current_node.rchild)
         print(current_node.data, " ")
+    
+    ## Minimum value
+    def minvalue(self):
+        current = self.root
+        if current is None:
+            return
+        while(current.lchild is not None):
+            current = current.lchild
 
+        return current.data
+    ## Max value
+    def maxvalue(self):
+        current = self.root
+        if current is None:
+            return
+        while(current.rchild is not None):
+            current.rchild = current
+        
+        return current.data
+
+
+bst = bst()
+bst.insert(50)
+bst.insert(7)
+bst.insert(40)
+bst.insert(30)
+bst.insert(20)
+bst.insert(10)
+bst.insert(60)
+bst.insert(70)
+bst.insert(80)
+bst.insert(90)
+bst.insert(100)
+print("Minimum value in the Binary Search Tree is : ",bst.minvalue())
+#print("Inorder Traversal: ",inorder_t)
