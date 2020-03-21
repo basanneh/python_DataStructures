@@ -13,7 +13,7 @@ class bst(object):
     def isEmpty(self):
         return self.root == None
     
-    def insert(self,data):
+    def insert(self,x):
         self.root = self._insert(self.root, x)
 
     
@@ -27,7 +27,42 @@ class bst(object):
         else:
             print(x, " already present in the tree")
         return p
+#### Inorder traversal
+    def inorder(self):
+        self._inorder(self.root)
+        print()
+
+    def _inorder(self,current_node):
+        if current_node is None:
+            return
+        self._inorder(current_node.lchld)
+        print (current_node.data, " ")
+        self._inorder(current_node.rchild)
+
+        ## Preorder traversal
+    def preorder(self):
+        self._preorder(self.root)
+        print()
 
 
+    def _preorder(self,current_node):
+        if current_node is None:
+            return
+        print(current_node.data, " ")
+        self._preorder(current_node.lchild)
+        self._preorder(current_node.rchild)
 
+        ## Postorder Traversal
+
+    def postorder(self):
+        self._postorder(self.root)
+        print()
+
+    def _postorder(self,current_node):
+
+        if current_node is None:
+            return 
+        self._postorder(current_node.lchild)
+        self._postorder(current_node.rchild)
+        print(current_node.data, " ")
 
