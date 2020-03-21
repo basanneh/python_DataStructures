@@ -1,3 +1,4 @@
+from collections import deque
 class Node(object):
 
     def __init__(self,data):
@@ -65,6 +66,22 @@ class bst(object):
         self._postorder(current_node.rchild)
         print(current_node.data, " ")
     
+    def level_order(self):
+        
+        if self.root is None:
+            print("Tree is Empty")
+            return
+        qu = deque()
+        qu.append(self.root)
+
+        while len(qu) !=0:
+            p = qu.popleft()
+            print(p.data, " ",end='')
+            if p.lchild is not None:
+                qu.append(p.lchild)
+            if p.rchild is not None:
+                qu.append(p.rchild)
+
     ## Minimum value
     def minvalue(self):
         current = self.root
@@ -84,7 +101,7 @@ class bst(object):
         
         return current.data
 
-
+    
 bst = bst()
 bst.insert(50)
 bst.insert(7)
@@ -97,5 +114,9 @@ bst.insert(70)
 bst.insert(80)
 bst.insert(90)
 bst.insert(100)
+print("Level Order Traversal : ")
+bst.level_order()
+print()
+bst.insert(50)
 print("Minimum value in the Binary Search Tree is : ",bst.minvalue())
 #print("Inorder Traversal: ",inorder_t)
