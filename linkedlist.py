@@ -40,16 +40,31 @@ class linkedlist(object):
             return
         else:
             while(current):
-                print("%d " %current.data)
+                print("%d " %current.data,end=' ')
                 current =current.next
+        print()
 
-    
+    def reverse_linkedlist(self):
+        prev = None
+        current = self.head
+        while current:
+            nxt = current.next
+            current.next = prev
+            prev = current
+            current = nxt
+        self.head = prev
+
 l1 =linkedlist()
 l1.insert(10)
 l1.insert(20)
 l1.insert(30)
 l1.display()
+print()
 l1.insertStart(5)
 l1.display()
 l1.insertStart(0)
+l1.display()
+print()
+l1.reverse_linkedlist()
+print("Reverse Linkedlist")
 l1.display()
