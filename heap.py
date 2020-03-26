@@ -1,31 +1,22 @@
-class HeapEmptyError(Exception):
-    pass
+from exceptions import Empty
 
 class Heap:
 
-    def __init__(self,maxSize=10):
-        self.a =[None]*maxSize
-        self.n = 0
-        self.a[0] = 99999
+    def __init__(self):
+        self._maxsize = 10
+        self._data = [None] * self._maxsize
+        self._count = 0
 
-    def insert(self, value):
-        self.n +=1
-        self.a[self.n] = value
-        self.restor_up(self.n)
+    def __len__(self):
+        return len(self._data)
+    
+    def is_empty(self):
+        return len(self._data) == 0
 
-    def restor_up(self,i):
-        k = self.a[i]  #current value
-        iparent = i //2 #parent of current value
-
-        while self.a[iparent] < k:
-            self.a[i] = self.a[iparent]
-            i=iparent
-            iparent =i //2
-        self.a[i] = k
-
-
-    def delete_root(self):
-        if self.n ==0:
-            raise HeapEmptyError("Heap is empty")
+    def maxh(self):
+        if self._currentsize == 0:
+            raise Empty('Heap is empty')
+        return self.data[1]
+    
 
 
