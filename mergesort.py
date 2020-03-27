@@ -5,17 +5,36 @@ def mergeSort(nums):
 
     mid = len(nums) //2
 
-    left_half = nums[:mid]
-    right_half = nums[mid:]
-
-    merge_sort(left_half)
-    merge_sort(right_half)
-
+    left = nums[:mid]
+    right = nums[mid:]
+    # Recursive call on each half
+    mergeSort(left)
+    mergeSort(right)
+    # Two iterators for traversing the two halves
     i = 0
     j = 0
+    # Iterator for the main list
     k = 0
 
-    while i <len(left_half) and j < len(right_half):
+    while i <len(left) and j < len(right):
+        if left[i] <right[j]:
+            nums[k] = left[i]
+            i +=1
 
+        else:
+            nums[k] = right[j]
+            j +=1
+        k +=1
 
-def merge(low,mid,high):
+    while i < len(left):
+        nums[k] = left[i]
+        i +=1
+        k +=1
+
+    while j < len(right):
+        nums[k] = right[j]
+        j +=1
+        k +=1
+myList = [54,26,93,17,77,31,44,55,20]
+mergeSort(myList)
+print(myList)
