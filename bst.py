@@ -97,8 +97,7 @@ class bst(object):
         if current is None:
             return
         while(current.rchild is not None):
-            current.rchild = current
-        
+            current = current.rchild
         return current.data
 
     
