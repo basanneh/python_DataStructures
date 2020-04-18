@@ -11,5 +11,4 @@ def hanoi(n,source, aux, destination):
     #placing n-1 plates on the top of the largest one
     hanoi(n-1,aux,source,destination)
 
-
 hanoi(3,'A','B','C')
