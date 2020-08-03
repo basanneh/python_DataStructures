@@ -39,6 +39,7 @@ class bst(object):
         print (current_node.data, " ")
         self._inorder(current_node.rchild)
 
+
         ## Preorder traversal
     def preorder(self):
         self._preorder(self.root)
@@ -117,5 +118,8 @@ print("Level Order Traversal : ")
 bst.level_order()
 print()
 bst.insert(50)
+print("Inoder")
+bst.inorder()
 print("Minimum value in the Binary Search Tree is : ",bst.minvalue())
-#print("Inorder Traversal: ",inorder_t)
+
+
