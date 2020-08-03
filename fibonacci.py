@@ -12,10 +12,8 @@ F = [-1]*50 #array to store fibonacci terms
 
 def dynamic_fibonacci(n):
   if (F[n] < 0):
-    if (n==0):
-      F[n] = 0
-    elif (n == 1):
-      F[n] = 1
+    if (n <=1):
+      F[n] = n
     else:
       F[n] = dynamic_fibonacci(n-1) + dynamic_fibonacci(n-2)
   return F[n]
